@@ -8,12 +8,40 @@ let array = [
 
 document.querySelectorAll('.inner-container').forEach((ele) =>{
     ele.addEventListener('click', () =>{
+        
         const element = addText(ele);
         addToArray(ele.id,element);
+
         if(checckWinner()){
-            alert(`${element} is winner 🎉`);
-            location.reload();
+            setTimeout(() =>{
+                WinnerAlert("WON");
+                location.reload;
+                return;
+            },500);
+            
         }
+
+        if(isSpaceLeft()){
+            let idx = undefined;
+            while(true){
+                idx = Math.floor(Math.random() * 9);
+                const ceil = document.getElementById(idx.toString());
+                if(ceil.textContent === ""){
+                    break;
+                }
+            }
+            const ceil = document.getElementById(idx.toString());
+            const compEle = addText(ceil);
+            addToArray(idx, compEle);
+            if(checckWinner()){
+                setTimeout(() =>{
+                    WinnerAlert("Loss");
+                    location.reload;
+                },500);
+                
+            }
+        }
+
         if(!isSpaceLeft()){
             alert("No one is winner");
             location.reload();
@@ -23,7 +51,7 @@ document.querySelectorAll('.inner-container').forEach((ele) =>{
 
 
 function addText(index){
-    if(index.textContent !== ''){
+    if(index.textContent !== '' && count % 2 == 0){
         alert("already filled");
         return;
     }
@@ -95,4 +123,9 @@ function isSpaceLeft(){
     }
 
     return false;
+}
+
+function WinnerAlert(position){
+    alert(`You ${position} the game🎉`);
+    location.reload();
 }
