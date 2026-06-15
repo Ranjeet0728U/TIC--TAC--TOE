@@ -15,7 +15,7 @@ document.querySelectorAll('.inner-container').forEach((ele) =>{
         if(checckWinner()){
             setTimeout(() =>{
                 WinnerAlert("WON");
-                location.reload;
+                location.reload();
                 
             },500);
             return;
@@ -37,7 +37,7 @@ document.querySelectorAll('.inner-container').forEach((ele) =>{
             if(checckWinner()){
                 setTimeout(() =>{
                     WinnerAlert("Loss");
-                    location.reload;
+                    location.reload();
                 },500);
                 
             }
@@ -54,6 +54,8 @@ document.querySelectorAll('.inner-container').forEach((ele) =>{
 function addText(index){
     if(index.textContent !== '' && count % 2 == 0){
         alert("already filled");
+        return;
+    }else if(index.textContent !== ''){
         return;
     }
     let ele = null;
