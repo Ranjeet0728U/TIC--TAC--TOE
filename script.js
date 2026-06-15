@@ -16,8 +16,9 @@ document.querySelectorAll('.inner-container').forEach((ele) =>{
             setTimeout(() =>{
                 WinnerAlert("WON");
                 location.reload;
-                return;
+                
             },500);
+            return;
             
         }
 
